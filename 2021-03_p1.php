@@ -1015,14 +1015,15 @@ function mostCommonBit($lines, $position)
     return $values["0"] > $values["1"] ? "0" : "1";
 }
 
-function inverseBinary($num)
+function inverseBinary(string $binaryString)
 {
     $inverse = "";
 
-    foreach (str_split($num) as $digit) {
-        $inverse .= match ($digit) {
-            0, "0" => "1",
-            1, "1" => "0",
+    foreach (str_split($binaryString) as $bit) {
+        $inverse .= match ($bit) {
+            "0" => "1",
+            "1" => "0",
+            default => "",
         };
     }
 
@@ -1035,8 +1036,9 @@ foreach (range(0, count($lines[0]) - 1) as $position) {
     $gamma .= mostCommonBit($lines, $position);
 }
 
-$epsilon = inverseBinary($gamma);
+$epsilon = bindec(inverseBinary($gamma));
+$gamma = bindec($gamma);
 
-$powerConsumption = bindec($gamma) * bindec($epsilon);
+$powerConsumption = $gamma * $epsilon;
 
 echo $powerConsumption.PHP_EOL;
