@@ -1,6 +1,4 @@
-<?php
-
-$input = "forward 2
+forward 2
 down 4
 down 1
 down 4
@@ -999,20 +997,4 @@ down 1
 forward 6
 down 6
 down 5
-forward 1";
-
-$lines = preg_split('/(\r\n|\n)/', $input);
-
-$result = ['depth' => 0, 'forward' => 0];
-
-foreach ($lines as $line) {
-    list($command, $value) = explode(' ', $line);
-
-    match ($command) {
-        'forward' => $result['forward'] += intval($value),
-        'down' => $result['depth'] += intval($value),
-        'up' => $result['depth'] -= intval($value),
-    };
-}
-
-echo ($result['depth'] * $result['forward']).PHP_EOL;
+forward 1

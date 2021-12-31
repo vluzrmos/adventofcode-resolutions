@@ -1,6 +1,4 @@
-<?php
-
-$input = "159
+159
 170
 171
 170
@@ -1999,23 +1997,4 @@ $input = "159
 5878
 5877
 5878
-5881";
-
-
-$lines = array_map('intval', preg_split('/(\r\n|\n)/', $input));
-
-$count = 0;
-$sum = $lines[0] + $lines[1] + $lines[2];
-
-for ($i=1; $i <= count($lines) - 3; $i++) {
-    $values = array_slice($lines, $i, 3);
-    $tempSum = array_sum($values);
-
-    if ($tempSum > $sum) {
-        $count++;
-    }
-
-    $sum = $tempSum;
-}
-
-echo $count.PHP_EOL;
+5881
