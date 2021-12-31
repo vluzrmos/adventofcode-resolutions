@@ -1001,7 +1001,7 @@ $input = "011111101011
 001111110000
 100000011011";
 
-// @var String[][]
+/**  @var string[][] $lines */
 $lines = array_map(fn ($line) => str_split($line), preg_split('/(\r\n|\n)/', $input));
 
 function mostCommonBit($lines, $position)
