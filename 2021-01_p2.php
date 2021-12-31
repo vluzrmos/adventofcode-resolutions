@@ -2009,13 +2009,13 @@ $sum = $lines[0] + $lines[1] + $lines[2];
 
 for ($i=1; $i <= count($lines) - 3; $i++) {
     $values = array_slice($lines, $i, 3);
-    $s = array_sum($values);
+    $tempSum = array_sum($values);
 
-    if ($s > $sum) {
+    if ($tempSum > $sum) {
         $count++;
     }
 
-    $sum = $s;
+    $sum = $tempSum;
 }
 
 echo $count.PHP_EOL;

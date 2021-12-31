@@ -1019,12 +1019,8 @@ foreach ($lines as $line) {
         case 'up':
             $result['aim'] -= intval($value);
             break;
+        default:
     }
-    
-    echo $line.PHP_EOL;
-    echo 'forward: '.$result['forward'].PHP_EOL;
-    echo 'depth: '.$result['depth'].PHP_EOL;
-    echo ''.PHP_EOL;
 }
 
 echo($result['depth'] * $result['forward']).PHP_EOL;
