@@ -9,7 +9,7 @@ $input = file_get_contents(__DIR__.'/inputs/003.txt');
 /**  @var string[] $lines */
 $lines = preg_split('/(\r\n|\n)/', $input);
 
-function mostCommonBit($lines, $position)
+function most_common_bit($lines, $position)
 {
     $values = ["0" => 0, "1" => 0];
 
@@ -21,7 +21,7 @@ function mostCommonBit($lines, $position)
     return $values["0"] > $values["1"] ? "0" : "1";
 }
 
-function inverseBinary(string $binaryString)
+function inverse_binary(string $binaryString)
 {
     $inverse = "";
 
@@ -39,10 +39,10 @@ function inverseBinary(string $binaryString)
 $gamma = "";
 
 foreach (range(0, strlen($lines[0]) - 1) as $position) {
-    $gamma .= mostCommonBit($lines, $position);
+    $gamma .= most_common_bit($lines, $position);
 }
 
-$epsilon = bindec(inverseBinary($gamma));
+$epsilon = bindec(inverse_binary($gamma));
 $gamma = bindec($gamma);
 
 $powerConsumption = $gamma * $epsilon;
